@@ -19,6 +19,8 @@ def main():
     m = ModelCaf()
     c = ControllerCaf(model=m, view=v)
     c.run()
+    logging.info("Arret")
+
 
 if __name__ == '__main__':
     main()
