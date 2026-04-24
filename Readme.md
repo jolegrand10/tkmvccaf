@@ -1,3 +1,19 @@
-# TKMVCCAF
+# pytest cache directory #
 
-Ce repo est le support d'un exercice de developpement en Python et en Èquipes.
+This directory contains data from the pytest's cache plugin,
+which provides the `--lf` and `--ff` options, as well as the `cache` fixture.
+
+**Do not** commit this to version control.
+
+See [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.
+#  TESTS
+ Installer pytest
+pip install pytest
+
+Cr√©er le fichier :
+
+tests/test_caf.py
+
+Lancer les tests: 
+pytest
+
