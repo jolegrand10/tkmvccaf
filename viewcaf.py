@@ -2,6 +2,7 @@
 
 
 import tkinter as tk
+import logging
 
 class ViewCaf:
 
@@ -68,7 +69,7 @@ class ViewCaf:
         button_quitter.grid(row=6, column=3)
     
     def raz(self):
-        print("On remet tout à Zéro")
+        logging.info("RAZ")
         self.label_valeur.config(text=" ")
         self.entry_salaire.delete(0, tk.END)
     
@@ -76,7 +77,7 @@ class ViewCaf:
         self.button_calcul.config(command=fn)
     
     def get_salaire(self):
-        return float(self.entry_salaire.get())
+        return self.entry_salaire.get()
     
     def set_allocation(self, v):
         self.label_valeur.config(text=v)
