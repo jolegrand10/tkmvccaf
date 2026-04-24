@@ -1,3 +1,11 @@
+import logging # imported bib logging
+
+logger = logging.getLogger("logCaf") # add a logger
+logging.basicConfig(
+    filename="logCaf.log",
+    format="%(asctime)s %(message)s",
+    level=logging.INFO)
+
 class ModelCaf:
 
     BAREME = {
@@ -10,8 +18,11 @@ class ModelCaf:
     def __init__(self, bareme = None):
         if bareme :
             self.bareme = ModelCaf.lire_bareme(bareme)
+            logging.info("Bareme from caf.ini")
         else :
             self.bareme = ModelCaf.BAREME
+            logging.info("Bareme from const in class ModelCaf")
+    
 
     def caf(self, revenu: float) -> float:
         """ calcule le montant de l'allocation à partir du
@@ -50,6 +61,7 @@ def main():
     assert(mc.caf(500)==200.00)
     assert(mc.caf(1350)==150.00)
     print("Ok!")
+    logging.info("Test Ok!")
 
 if __name__ == '__main__':
     main()
