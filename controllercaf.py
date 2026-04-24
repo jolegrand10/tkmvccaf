@@ -1,4 +1,11 @@
 """ Module controllercaf.py  Controleur pour l'appli CAF en"""
+import logging
+
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s [%(levelname)s] %(message)s",
+    filename="app.log"  # log dans un fichier
+)
 class ControllerCaf:
     def __init__(self, model, view):
         self.model = model
@@ -7,20 +14,34 @@ class ControllerCaf:
 
     def calcul(self):
         print("On calcule l'allocation maintenant")
-        #
+        logging.info("Début du Calcul")
         # recupérer la valeur du salaire
-        #
-        r = self.view.get_salaire()
-        print(f"{r=}")
-        #
+        try :
+            r = self.view.get_salaire()
+            logging.debug(f"Salaire récupéré : {r=}")
         # appeler la fonction caf
-        #
-        v = self.model.caf(r)
+            r = float(r)
+            if r is None or r.strip()=="":
+                raise ValueError("Champ vide")
+            v = self.model.caf(r)
         #
         # mettre le résultat dans la vue
         #
-        self.view.set_allocation(f"{v:.2f}")
+            self.view.set_allocation(f"{v:.2f}")
+            logging.info("Succès!")
+        except TypeError as e:
+            logging.warning(f'Erreur Type: {e}')
+
+        except ValueError as e:
+            logging.warning(f"Erreur Valeur : {e}")
+
+        except Exception as e:
+            logging.error(f'Erreur Autre: {e}')
+
 
 
     def run(self):
-        self.view.run()
+        try :
+            self.view.run()
+        except Exception as e :
+            logging.error("Erreur éxécution : {e}")
