@@ -1,28 +1,19 @@
-# TKMVCCAF
+# pytest cache directory #
 
-Ce repo est le support d'un exercice de developpement en Python et en quipes.
+This directory contains data from the pytest's cache plugin,
+which provides the `--lf` and `--ff` options, as well as the `cache` fixture.
 
-\# tkmvccaf
+**Do not** commit this to version control.
 
-
-
-Projet avec tests pytest
-
-
-
-\## Installation
-
+See [the docs](https://docs.pytest.org/en/stable/how-to/cache.html) for more information.
+#  TESTS
+ Installer pytest
 pip install pytest
 
+Créer le fichier :
 
+tests/test_caf.py
 
-\## Lancer les tests
-
+Lancer les tests: 
 pytest
-
-
-
-GitHub - jolegrand10/tkmvccaf: A python app, using TK to compute CA...
-
-A python app, using TK to compute CAF amount. Contribute to jolegrand10/tkmvccaf development by creating an account on GitHub.
 
